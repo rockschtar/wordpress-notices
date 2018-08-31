@@ -6,11 +6,12 @@
 namespace Rockschtar\WordPress\Notices\Controller;
 
 use Rockschtar\WordPress\Notices\Manager\NoticeManager;
+use Rockschtar\WordPress\Notices\Models\NoticeType;
 
 class NoticeController {
 
     private function __construct() {
-        add_action('admin_notices', array(&$this, 'display_notices'));
+        add_action('admin_notices', array(&$this, 'display_info'));
         //add_action('admin_notices', array(&$this, 'display_errors'));
         //add_action('admin_notices', array(&$this, 'display_updated'));
     }
@@ -23,32 +24,52 @@ class NoticeController {
         return $instance;
     }
 
-    public function display_notices() : void {
-        $notices = NoticeManager::getNotices();
+    private function display(string $type): void {
 
-        $html_container = '<div class="notice notice-warning">%s</div>';
-        if ($notices) {
+        switch($type) {
+            case NoticeType::ERROR:
+                $css_class = 'notice-error';
+                break;
+            case NoticeType::SUCCESS:
+                $css_class = 'notice-success';
+                break;
+            case NoticeType::WARNING:
+                $css_class = 'notice-warning';
+                break;
+            case NoticeType::INFO:
+            default:
+                $css_class = 'notice-info';
+                break;
+        }
+
+        $notices = NoticeManager::getNotices();
+        $notices_by_type = $notices->filter($type);
+
+        $html_container = '<div class="notice ' . $css_class . '">%s</div>';
+
+        if(\count($notices_by_type) > 0) {
 
             $html_content = '<ul>';
-            foreach ($notices as $notice):
+            foreach($notices as $notice) {
                 $html_content .= '<li>' . $notice->getMessage() . '</li>';
-            endforeach;
+            }
             $html_content .= '<ul>';
             echo sprintf($html_container, $html_content);
         }
 
         $notices_single = NoticeManager::getNotices(true);
+        $notices_by_type_single = $notices_single->filter($type);
 
-        if ($notices_single) {
-            foreach ($notices_single as $notice_single):
-                $html_content = $notice_single;
+        if(\count($notices_by_type_single) > 0) {
+            foreach($notices_single as $notice_single) {
+                $html_content = $notice_single->getMessage();
                 echo sprintf($html_container, $html_content);
-            endforeach;
+            }
         }
-
-        NoticeManager::deleteNotices();
-        NoticeManager::deleteNotices(true);
     }
 
+    public function display_info(): void {
+        $this->display(NoticeType::INFO);
+    }
 
 }

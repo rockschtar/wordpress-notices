@@ -18,6 +18,11 @@ class Notice {
     private $message;
 
     /**
+     * @var bool
+     */
+    private $dismissible = false;
+
+    /**
      * Notice constructor.
      * @param $type
      * @param $message
@@ -58,4 +63,22 @@ class Notice {
         $this->message = $message;
         return $this;
     }
+
+    /**
+     * @return bool
+     */
+    public function isDismissible(): bool {
+        return $this->dismissible;
+    }
+
+    /**
+     * @param bool $dismissible
+     * @return Notice
+     */
+    public function setDismissible(bool $dismissible): Notice {
+        $this->dismissible = $dismissible;
+        return $this;
+    }
+
+
 }

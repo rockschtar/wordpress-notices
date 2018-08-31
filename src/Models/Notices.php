@@ -16,6 +16,24 @@ class Notices extends TypedArray {
         return Notice::class;
     }
 
+    /**
+     * @param string $type
+     * @return Notice[]
+     */
+    public function filter(string $type): array {
+
+        $result = [];
+
+        foreach($this->getArrayCopy() as $item) {
+            /* @var $item Notice */
+            if($item->getType() === $type) {
+                $result[] = $item;
+            }
+        }
+
+        return $result;
+    }
+
     protected function isDuplicate($value): bool {
         /* @var $value Notice */
         /* @var $item Notice */

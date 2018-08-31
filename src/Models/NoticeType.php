@@ -5,10 +5,12 @@
 
 namespace Rockschtar\WordPress\Notices\Models;
 
-class NoticeType {
+use MyCLabs\Enum\Enum;
+
+class NoticeType extends Enum {
 
     public const ERROR = 'error';
-    public const NOTICE = 'notice';
-    public const UPDATED = 'updated';
-
+    public const INFO = 'info';
+    public const SUCCESS = 'success';
+    public const WARNING = 'warning';
 }
