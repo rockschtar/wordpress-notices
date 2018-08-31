@@ -50,7 +50,7 @@ class NoticeController {
         if(\count($notices_by_type) > 0) {
 
             $html_content = '<ul>';
-            foreach($notices as $notice) {
+            foreach($notices_by_type as $notice) {
                 $html_content .= '<li>' . $notice->getMessage() . '</li>';
             }
             $html_content .= '<ul>';
@@ -61,7 +61,7 @@ class NoticeController {
         $notices_by_type_single = $notices_single->filter($type);
 
         if(\count($notices_by_type_single) > 0) {
-            foreach($notices_single as $notice_single) {
+            foreach($notices_by_type_single as $notice_single) {
                 $html_content = $notice_single->getMessage();
                 echo sprintf($html_container, $html_content);
             }
@@ -73,6 +73,12 @@ class NoticeController {
         foreach(NoticeType::toArray() as $type) {
             $this->display($type);
         }
+
+        NoticeManager::deleteNotices();
+        NoticeManager::deleteNotices(true);
+
+
+
     }
 
 }

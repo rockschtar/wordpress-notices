@@ -55,6 +55,12 @@ class NoticeManager {
         return $notices;
     }
 
+    public static function deleteNotices(bool $single = false): void {
+        $transient_key = self::getTransientKey($single);
+        delete_transient($transient_key);
+    }
+
+
     private static function addNotice(Notice $notice, bool $single = false): void {
         $transient_key = self::getTransientKey($single);
         $notices = self::getNotices($single);
