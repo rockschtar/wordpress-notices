@@ -50,7 +50,7 @@ class NoticeController {
 
         if(\count($notices_by_type) > 0) {
             foreach($notices_by_type as $notice) {
-                $html_content = $notice->getMessage();
+                $html_content = '<p>' . $notice->getMessage() . '</p>';
                 $css_classes = $notice->isDismissible() ? $css_class . ' ' . 'is-dismissible' : $css_class;
                 echo sprintf($html_container, $css_classes, $html_content);
             }
