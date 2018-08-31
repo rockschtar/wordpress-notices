@@ -69,7 +69,10 @@ class NoticeController {
     }
 
     public function display_info(): void {
-        $this->display(NoticeType::INFO);
+
+        foreach(NoticeType::toArray() as $type) {
+            $this->display($type);
+        }
     }
 
 }
