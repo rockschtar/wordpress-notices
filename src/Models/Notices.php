@@ -3,7 +3,7 @@
  * @author: StefanHelmer
  */
 
-namespace Rockschtar\Wordpress\Notices\Models;
+namespace Rockschtar\WordPress\Notices\Models;
 
 use Rockschtar\TypedArrays\TypedArray;
 

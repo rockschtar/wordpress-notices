@@ -3,11 +3,11 @@
  * @author: StefanHelmer
  */
 
-namespace Rockschtar\Wordpress\Notices\Manager;
+namespace Rockschtar\WordPress\Notices\Manager;
 
-use Rockschtar\Wordpress\Notices\Models\Notice;
-use Rockschtar\Wordpress\Notices\Models\Notices;
-use Rockschtar\Wordpress\Notices\Models\NoticeType;
+use Rockschtar\WordPress\Notices\Models\Notice;
+use Rockschtar\WordPress\Notices\Models\Notices;
+use Rockschtar\WordPress\Notices\Models\NoticeType;
 
 class NoticeManager {
 

@@ -3,9 +3,9 @@
  * @author: StefanHelmer
  */
 
-namespace Rockschtar\Wordpress\Notices\Controller;
+namespace Rockschtar\WordPress\Notices\Controller;
 
-use Rockschtar\Wordpress\Notices\Manager\NoticeManager;
+use Rockschtar\WordPress\Notices\Manager\NoticeManager;
 
 class NoticeController {
 
