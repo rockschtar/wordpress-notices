@@ -1,0 +1,19 @@
+{
+  "name": "rockschtar/wordpress-notices",
+  "license": "MIT",
+  "description": "Library for simple creation of admin notices",
+  "require": {
+    "php": ">=7.1",
+    "rockschtar/typed-arrays": "0.1.*"
+  },
+  "require-dev": {
+    "brain/monkey": "2.*",
+    "phpunit/phpunit": "^7"
+  },
+  "autoload": {
+    "psr-4": {
+      "Rockschtar\\WordPress\\Notices\\": "src/",
+      "Rockschtar\\WordPress\\Notices\\Tests\\": "tests/"
+    }
+  }
+}
