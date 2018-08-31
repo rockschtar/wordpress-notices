@@ -3,7 +3,7 @@
  * @author: StefanHelmer
  */
 
-namespace Rockschtar\Wordpress\Notices\Models;
+namespace Rockschtar\WordPress\Notices\Models;
 
 class Notice {
 
@@ -18,13 +18,20 @@ class Notice {
     private $message;
 
     /**
-     * Notice constructor.
-     * @param $type
-     * @param $message
+     * @var bool
      */
-    public function __construct($type, $message) {
+    private $dismissible = false;
+
+    /**
+     * Notice constructor.
+     * @param string $type
+     * @param string $message
+     * @param bool $dismissible
+     */
+    public function __construct(string $type, string $message, bool $dismissible = false) {
         $this->type = $type;
         $this->message = $message;
+        $this->dismissible = $dismissible;
     }
 
     /**
@@ -58,4 +65,22 @@ class Notice {
         $this->message = $message;
         return $this;
     }
+
+    /**
+     * @return bool
+     */
+    public function isDismissible(): bool {
+        return $this->dismissible;
+    }
+
+    /**
+     * @param bool $dismissible
+     * @return Notice
+     */
+    public function setDismissible(bool $dismissible): Notice {
+        $this->dismissible = $dismissible;
+        return $this;
+    }
+
+
 }

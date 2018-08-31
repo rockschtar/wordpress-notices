@@ -4,7 +4,8 @@
   "description": "Library for simple creation of admin notices",
   "require": {
     "php": ">=7.1",
-    "rockschtar/typed-arrays": "0.1.*"
+    "rockschtar/typed-arrays": "0.1.*",
+    "myclabs/php-enum": "^1.6"
   },
   "require-dev": {
     "brain/monkey": "2.*",

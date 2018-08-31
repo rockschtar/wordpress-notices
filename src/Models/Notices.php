@@ -3,7 +3,7 @@
  * @author: StefanHelmer
  */
 
-namespace Rockschtar\Wordpress\Notices\Models;
+namespace Rockschtar\WordPress\Notices\Models;
 
 use Rockschtar\TypedArrays\TypedArray;
 
@@ -14,6 +14,24 @@ class Notices extends TypedArray {
 
     public function getType(): string {
         return Notice::class;
+    }
+
+    /**
+     * @param string $type
+     * @return Notice[]
+     */
+    public function filter(string $type): array {
+
+        $result = [];
+
+        foreach($this->getArrayCopy() as $item) {
+            /* @var $item Notice */
+            if($item->getType() === $type) {
+                $result[] = $item;
+            }
+        }
+
+        return $result;
     }
 
     protected function isDuplicate($value): bool {

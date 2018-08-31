@@ -3,14 +3,15 @@
  * @author: StefanHelmer
  */
 
-namespace Rockschtar\Wordpress\Notices\Controller;
+namespace Rockschtar\WordPress\Notices\Controller;
 
-use Rockschtar\Wordpress\Notices\Manager\NoticeManager;
+use Rockschtar\WordPress\Notices\Manager\NoticeManager;
+use Rockschtar\WordPress\Notices\Models\NoticeType;
 
 class NoticeController {
 
     private function __construct() {
-        add_action('admin_notices', array(&$this, 'display_notices'));
+        add_action('admin_notices', array(&$this, 'display_info'));
         //add_action('admin_notices', array(&$this, 'display_errors'));
         //add_action('admin_notices', array(&$this, 'display_updated'));
     }
@@ -23,32 +24,46 @@ class NoticeController {
         return $instance;
     }
 
-    public function display_notices() : void {
-        $notices = NoticeManager::getNotices();
+    private function display(string $type): void {
 
-        $html_container = '<div class="notice notice-warning">%s</div>';
-        if ($notices) {
-
-            $html_content = '<ul>';
-            foreach ($notices as $notice):
-                $html_content .= '<li>' . $notice->getMessage() . '</li>';
-            endforeach;
-            $html_content .= '<ul>';
-            echo sprintf($html_container, $html_content);
+        switch($type) {
+            case NoticeType::ERROR:
+                $css_class = 'notice-error';
+                break;
+            case NoticeType::SUCCESS:
+                $css_class = 'notice-success';
+                break;
+            case NoticeType::WARNING:
+                $css_class = 'notice-warning';
+                break;
+            case NoticeType::INFO:
+            default:
+                $css_class = 'notice-info';
+                break;
         }
 
-        $notices_single = NoticeManager::getNotices(true);
 
-        if ($notices_single) {
-            foreach ($notices_single as $notice_single):
-                $html_content = $notice_single;
-                echo sprintf($html_container, $html_content);
-            endforeach;
+        $notices = NoticeManager::getNotices();
+        $notices_by_type = $notices->filter($type);
+
+        $html_container = '<div class="notice %s">%s</div>';
+
+        if(\count($notices_by_type) > 0) {
+            foreach($notices_by_type as $notice) {
+                $html_content = '<p>' . $notice->getMessage() . '</p>';
+                $css_classes = $notice->isDismissible() ? $css_class . ' ' . 'is-dismissible' : $css_class;
+                echo sprintf($html_container, $css_classes, $html_content);
+            }
+        }
+    }
+
+    public function display_info(): void {
+
+        foreach(NoticeType::toArray() as $type) {
+            $this->display($type);
         }
 
         NoticeManager::deleteNotices();
-        NoticeManager::deleteNotices(true);
     }
-
 
 }
