@@ -24,12 +24,14 @@ class Notice {
 
     /**
      * Notice constructor.
-     * @param $type
-     * @param $message
+     * @param string $type
+     * @param string $message
+     * @param bool $dismissible
      */
-    public function __construct($type, $message) {
+    public function __construct(string $type, string $message, bool $dismissible = false) {
         $this->type = $type;
         $this->message = $message;
+        $this->dismissible = $dismissible;
     }
 
     /**

@@ -5,47 +5,40 @@
 
 namespace Rockschtar\WordPress\Notices\Manager;
 
-
 use Rockschtar\WordPress\Notices\Models\Notice;
 use Rockschtar\WordPress\Notices\Models\Notices;
 use Rockschtar\WordPress\Notices\Models\NoticeType;
 
 class NoticeManager {
 
-    public static function addSuccess(string $message, bool $single = false): void {
-        self::addNotice(new Notice(NoticeType::SUCCESS, $message), $single);
+    public static function addSuccess(string $message, bool $dismissible = false): void {
+        self::addNotice(new Notice(NoticeType::SUCCESS, $message, $dismissible));
     }
 
-    public static function addWarning(string $message, bool $single = false): void {
-        self::addNotice(new Notice(NoticeType::WARNING, $message), $single);
+    public static function addWarning(string $message, bool $dismissible = false): void {
+        self::addNotice(new Notice(NoticeType::WARNING, $message, $dismissible));
     }
 
-    public static function addError(string $message, bool $single = false): void {
-        self::addNotice(new Notice(NoticeType::ERROR, $message), $single);
+    public static function addError(string $message, bool $dismissible = false): void {
+        self::addNotice(new Notice(NoticeType::ERROR, $message, $dismissible));
     }
 
-    public static function addInfo(string $message, bool $single = false): void {
-        self::addNotice(new Notice(NoticeType::INFO, $message), $single);
+    public static function addInfo(string $message, bool $dismissible = false): void {
+        self::addNotice(new Notice(NoticeType::INFO, $message, $dismissible));
     }
 
-    private static function getTransientKey(bool $single = false): string {
+    private static function getTransientKey(): string {
 
         if(session_status() === PHP_SESSION_NONE) {
             session_start();
         }
 
-        if($single) {
-            $transient_key = 'rsn-single-' . session_id();
-        } else {
-            $transient_key = 'rsn-' . session_id();
-        }
-
-        return $transient_key;
+        return 'rswn-' . session_id();
     }
 
-    public static function getNotices(bool $single = false): Notices {
+    public static function getNotices(): Notices {
 
-        $notices_transient = get_transient(self::getTransientKey($single));
+        $notices_transient = get_transient(self::getTransientKey());
 
         if(empty($notices_transient)) {
             return new Notices();
@@ -55,15 +48,14 @@ class NoticeManager {
         return $notices;
     }
 
-    public static function deleteNotices(bool $single = false): void {
-        $transient_key = self::getTransientKey($single);
+    public static function deleteNotices(): void {
+        $transient_key = self::getTransientKey();
         delete_transient($transient_key);
     }
 
-
-    private static function addNotice(Notice $notice, bool $single = false): void {
-        $transient_key = self::getTransientKey($single);
-        $notices = self::getNotices($single);
+    private static function addNotice(Notice $notice): void {
+        $transient_key = self::getTransientKey();
+        $notices = self::getNotices();
         $notices->append($notice);
         $notices_transient_single = serialize($notices);
         set_transient($transient_key, $notices_transient_single, 120);

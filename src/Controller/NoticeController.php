@@ -42,28 +42,17 @@ class NoticeController {
                 break;
         }
 
+
         $notices = NoticeManager::getNotices();
         $notices_by_type = $notices->filter($type);
 
-        $html_container = '<div class="notice ' . $css_class . '">%s</div>';
+        $html_container = '<div class="notice %s">%s</div>';
 
         if(\count($notices_by_type) > 0) {
-
-            $html_content = '<ul>';
             foreach($notices_by_type as $notice) {
-                $html_content .= '<li>' . $notice->getMessage() . '</li>';
-            }
-            $html_content .= '<ul>';
-            echo sprintf($html_container, $html_content);
-        }
-
-        $notices_single = NoticeManager::getNotices(true);
-        $notices_by_type_single = $notices_single->filter($type);
-
-        if(\count($notices_by_type_single) > 0) {
-            foreach($notices_by_type_single as $notice_single) {
-                $html_content = $notice_single->getMessage();
-                echo sprintf($html_container, $html_content);
+                $html_content = $notice->getMessage();
+                $css_classes = $notice->isDismissible() ? $css_class . ' ' . 'is-dismissible' : $css_class;
+                echo sprintf($html_container, $css_classes, $html_content);
             }
         }
     }
@@ -75,10 +64,6 @@ class NoticeController {
         }
 
         NoticeManager::deleteNotices();
-        NoticeManager::deleteNotices(true);
-
-
-
     }
 
 }
