@@ -5,7 +5,7 @@ This library helps to display notices in wordpress admin area.
 ### Prerequisites
 
 * PHP>=7.1
-* roots/bedrock based project
+* [roots/bedrock](https://roots.io/bedrock/) based project
 
 ### Usage
 plugin.php
