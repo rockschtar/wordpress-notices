@@ -1,7 +1,5 @@
 <?php
 
-\Rockschtar\WordPress\Notices\Controller\NoticeController::init();
-
 function add_notice_info(string $message, bool $dissmisble = false): void {
     \Rockschtar\WordPress\Notices\Manager\NoticeManager::addInfo($message, $dissmisble);
 }
