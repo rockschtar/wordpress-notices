@@ -1,4 +1,5 @@
 ![DUB](https://img.shields.io/dub/l/vibe-d.svg)
+![PHP from Travis config](https://img.shields.io/travis/php-v/symfony/symfony.svg)
 
 # WordPress Admin Notices
 
