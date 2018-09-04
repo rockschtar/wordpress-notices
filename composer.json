@@ -8,17 +8,12 @@
     "rockschtar/typed-arrays": "0.1.*",
     "myclabs/php-enum": "^1.6"
   },
-  "require-dev": {
-    "brain/monkey": "2.*",
-    "phpunit/phpunit": "^7"
-  },
   "autoload": {
     "files": [
       "src/helpers.php"
     ],
     "psr-4": {
       "Rockschtar\\WordPress\\Notices\\": "src/",
-      "Rockschtar\\WordPress\\Notices\\Tests\\": "tests/"
     }
   }
 }
