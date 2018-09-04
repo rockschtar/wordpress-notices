@@ -3,6 +3,7 @@
   "license": "MIT",
   "description": "Library for simple creation of admin notices",
   "type": "library",
+  "homepage": "https://gitlab.com/rockschtar/wordpress-notices",
   "authors": [
     {
       "name": "Stefan Helmer",
