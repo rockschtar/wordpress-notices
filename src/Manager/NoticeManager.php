@@ -28,11 +28,6 @@ class NoticeManager {
     }
 
     private static function getTransientKey(): string {
-
-        if(session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
-
         return 'rswn-' . session_id();
     }
 
