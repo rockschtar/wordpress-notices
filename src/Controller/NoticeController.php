@@ -11,20 +11,25 @@ use Rockschtar\WordPress\Notices\Models\NoticeType;
 class NoticeController {
 
     private function __construct() {
-        add_action('admin_notices', array(&$this, 'display_info'));
-        //add_action('admin_notices', array(&$this, 'display_errors'));
-        //add_action('admin_notices', array(&$this, 'display_updated'));
+        add_action('admin_notices', array(&$this, 'display_notices'));
+        add_action('admin_init', array(&$this, 'session_required'));
     }
 
     public static function &init() {
         static $instance = false;
-        if (!$instance) {
+        if(!$instance) {
             $instance = new self();
         }
         return $instance;
     }
 
-    private function display(string $type): void {
+    final public function session_required(): void {
+        if(session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+    }
+
+    private function _display_notices(string $type): void {
 
         switch($type) {
             case NoticeType::ERROR:
@@ -42,7 +47,6 @@ class NoticeController {
                 break;
         }
 
-
         $notices = NoticeManager::getNotices();
         $notices_by_type = $notices->filter($type);
 
@@ -57,10 +61,10 @@ class NoticeController {
         }
     }
 
-    public function display_info(): void {
+    public function display_notices(): void {
 
         foreach(NoticeType::toArray() as $type) {
-            $this->display($type);
+            $this->_display_notices($type);
         }
 
         NoticeManager::deleteNotices();
