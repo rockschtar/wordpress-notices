@@ -14,14 +14,9 @@ before_script:
 - apt-get update -yqq
 - apt-get install -yqq git libmcrypt-dev libpq-dev libcurl4-gnutls-dev libicu-dev libvpx-dev libjpeg-dev libpng-dev libxpm-dev zlib1g-dev libfreetype6-dev libxml2-dev libexpat1-dev libbz2-dev libgmp3-dev libldap2-dev unixodbc-dev libsqlite3-dev libaspell-dev libsnmp-dev libpcre3-dev libtidy-dev
 # Install PHP extensions
-- docker-php-ext-install mbstring mcrypt pdo_pgsql curl json intl gd xml zip bz2 opcache
+- docker-php-ext-install mbstring mcrypt curl json xml zip bz2
 # Install and run Composer
 - curl -sS https://getcomposer.org/installer | php
-- php composer.phar config http-basic.packages.eracer.de packages $COMPOER_ERACER_REPOSITORY_PASSWORD
-- curl -LO https://deployer.org/deployer.phar
-- mv deployer.phar /usr/local/bin/dep
-- chmod +x /usr/local/bin/dep
-- ssh-add <(echo "$SSH_W00C2E74_PRIVATE_KEY")
 
 build:
   stage: build
