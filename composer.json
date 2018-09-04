@@ -2,7 +2,7 @@
   "name": "rockschtar/wordpress-notices",
   "license": "MIT",
   "description": "Library for simple creation of admin notices",
-  "type": "wordpress-muplugin",
+  "type": "library",
   "require": {
     "php": ">=7.1",
     "rockschtar/typed-arrays": "0.1.*",
