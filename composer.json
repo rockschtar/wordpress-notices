@@ -13,7 +13,7 @@
       "src/helpers.php"
     ],
     "psr-4": {
-      "Rockschtar\\WordPress\\Notices\\": "src/",
+      "Rockschtar\\WordPress\\Notices\\": "src/"
     }
   }
 }
