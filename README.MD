@@ -1,3 +1,5 @@
+![DUB](https://img.shields.io/dub/l/vibe-d.svg)
+
 # WordPress Admin Notices
 
 This library helps to display notices in wordpress admin area.
