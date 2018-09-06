@@ -3,7 +3,7 @@
 
 # WordPress Admin Notices
 
-This library helps to display notices in wordpress admin area.
+This library/mu-plugin helps to display notices in wordpress admin area.
 
 ### Prerequisites
 
@@ -11,11 +11,6 @@ This library helps to display notices in wordpress admin area.
 * [roots/bedrock](https://roots.io/bedrock/) based project
 
 ### Usage
-plugin.php
-```php
-NoticeController::init();
-```
-
 somewhere in your plugin code (example)
 ```php
 add_action('admin_init', function() {

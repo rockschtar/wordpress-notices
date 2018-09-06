@@ -2,7 +2,7 @@
   "name": "rockschtar/wordpress-notices",
   "license": "MIT",
   "description": "Library for simple creation of admin notices",
-  "type": "library",
+  "type": "wordpress-muplugin",
   "homepage": "https://gitlab.com/rockschtar/wordpress-notices",
   "authors": [
     {
@@ -16,9 +16,6 @@
     "myclabs/php-enum": "^1.6"
   },
   "autoload": {
-    "files": [
-      "src/helpers.php"
-    ],
     "psr-4": {
       "Rockschtar\\WordPress\\Notices\\": "src/"
     }
