@@ -1,23 +1,23 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-      "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-  "content-hash": "4be836e95261027a716c58d256987c4b",
+    "content-hash": "7fcec5f8e14e0c4537f2bc2809ef0c97",
     "packages": [
         {
             "name": "myclabs/php-enum",
-          "version": "1.6.4",
+            "version": "1.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/php-enum.git",
-              "reference": "550d2334d77f91b0816a5cbd6965272fe20146b8"
+                "reference": "550d2334d77f91b0816a5cbd6965272fe20146b8"
             },
             "dist": {
                 "type": "zip",
-              "url": "https://api.github.com/repos/myclabs/php-enum/zipball/550d2334d77f91b0816a5cbd6965272fe20146b8",
-              "reference": "550d2334d77f91b0816a5cbd6965272fe20146b8",
+                "url": "https://api.github.com/repos/myclabs/php-enum/zipball/550d2334d77f91b0816a5cbd6965272fe20146b8",
+                "reference": "550d2334d77f91b0816a5cbd6965272fe20146b8",
                 "shasum": ""
             },
             "require": {
@@ -48,20 +48,20 @@
             "keywords": [
                 "enum"
             ],
-          "time": "2018-10-30T14:36:18+00:00"
+            "time": "2018-10-30T14:36:18+00:00"
         },
         {
             "name": "rockschtar/typed-arrays",
-          "version": "0.2.0-beta.1",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.com/rockschtar/typed-arrays.git",
-              "reference": "609e33128956700983fc734983511ddd66b64897"
+                "reference": "d45e4c3c7509b2c2a7b4373ac01c1f962166ac83"
             },
             "dist": {
                 "type": "zip",
-              "url": "https://gitlab.com/api/v4/projects/rockschtar%2Ftyped-arrays/repository/archive.zip?sha=609e33128956700983fc734983511ddd66b64897",
-              "reference": "609e33128956700983fc734983511ddd66b64897",
+                "url": "https://gitlab.com/api/v4/projects/rockschtar%2Ftyped-arrays/repository/archive.zip?sha=d45e4c3c7509b2c2a7b4373ac01c1f962166ac83",
+                "reference": "d45e4c3c7509b2c2a7b4373ac01c1f962166ac83",
                 "shasum": ""
             },
             "require": {
@@ -83,15 +83,13 @@
                     "email": "rockschtar@gmail.com"
                 }
             ],
-          "time": "2018-11-07T12:02:39+00:00"
+            "time": "2018-11-07T13:46:24+00:00"
         }
     ],
-  "packages-dev": [],
+    "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-  "stability-flags": {
-    "rockschtar/typed-arrays": 10
-  },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
