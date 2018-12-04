@@ -21,15 +21,15 @@ var RSAdminNotices = (function () {
     }
 
 
-    function addNotice($type, $message, dissmissable) {
+    function addNotice(type, message, dissmissable) {
 
-        message = typeof $message !== 'undefined' ? $message : '';
+        message = typeof message !== 'undefined' ? $message : '';
         dissmissable = typeof dissmissable !== 'undefined' ? dissmissable : false;
 
 
         var type_css_class = '';
 
-        switch ($type) {
+        switch (type) {
             case 'error':
                 type_css_class = 'notice-error';
                 break;
