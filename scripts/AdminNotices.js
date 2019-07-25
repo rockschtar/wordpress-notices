@@ -23,7 +23,7 @@ var RSAdminNotices = (function () {
 
     function addNotice(type, message, dissmissable) {
 
-        message = typeof message !== 'undefined' ? $message : '';
+        message = typeof message !== 'undefined' ? message : '';
         dissmissable = typeof dissmissable !== 'undefined' ? dissmissable : false;
 
 
