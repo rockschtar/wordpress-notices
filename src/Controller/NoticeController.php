@@ -11,8 +11,14 @@ use Rockschtar\WordPress\Notices\Models\NoticeType;
 class NoticeController {
 
     private function __construct() {
+        add_action('admin_enqueue_scripts', array(&$this, 'admin_enqueue_scripts'));
         add_action('admin_notices', array(&$this, 'display_notices'));
         add_action('admin_init', array(&$this, 'session_required'));
+    }
+
+    public function admin_enqueue_scripts() {
+
+       wp_enqueue_script('rs-admin-notices', RSAS_PLUGIN_URL . '/scripts/AdminNotices.js');
     }
 
     public static function &init() {

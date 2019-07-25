@@ -9,6 +9,8 @@
  * License: MIT License
  */
 
+define('RSAS_PLUGIN_URL', plugin_dir_url(__FILE__));
+
 \Rockschtar\WordPress\Notices\Controller\NoticeController::init();
 
 /**
