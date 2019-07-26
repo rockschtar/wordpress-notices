@@ -1,14 +1,28 @@
-![MIT](https://img.shields.io/dub/l/vibe-d.svg)
-![PHP](https://img.shields.io/travis/php-v/symfony/symfony.svg)
+# rockschtar/wordpress-notices
 
-# WordPress Admin Notices
+# Description
 
-This library/mu-plugin helps to display notices in wordpress admin area.
+WordPress
+[Must Use Plugin](https://codex.wordpress.org/Must_Use_Plugins) that
+helps to display notices in wordpress admin area. Developed for usage
+with composer based based WordPress projects
+([roots/bedrock](https://github.com/roots/bedrock) or
+[johnpbloch/wordpress](https://github.com/johnpbloch/wordpress)).
 
-### Prerequisites
+# Requirements
 
-* PHP>=7.1
-* [roots/bedrock](https://roots.io/bedrock/) based project
+  - PHP 7.1+
+  - [Composer](https://getcomposer.org/) to install
+
+# Install
+
+```
+composer require rockschtar/wordpress-notices
+```
+
+# License
+
+rockschtar/wordpress-metarevisions is open source and released under MIT license. See LICENSE.md file for more info.
 
 ### Usage
 somewhere in your plugin code (example)
@@ -16,4 +30,11 @@ somewhere in your plugin code (example)
 add_action('admin_init', function() {
     add_notice_success('Hello World');
 });
+```
+
+```javascript
+RSAdminNotices.addError('This is a error');
+RSAdminNotices.addSuccess('This is a success');
+RSAdminNotices.addInfo('This is a info');
+RSAdminNotices.addWarning('This is a warning');
 ```

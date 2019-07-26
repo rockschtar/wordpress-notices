@@ -12,12 +12,17 @@
   ],
   "require": {
     "php": ">=7.1",
-    "rockschtar/typed-arrays": "0.2.*",
+    "rockschtar/typed-arrays": "0.3.*",
     "myclabs/php-enum": "^1.6"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "7.5.*",
+    "brain/monkey": "^2.2"
   },
   "autoload": {
     "psr-4": {
-      "Rockschtar\\WordPress\\Notices\\": "src/"
+      "Rockschtar\\WordPress\\Notices\\": "src/",
+      "Rockschtar\\WordPress\\Notices\\Tests\\": "tests/"
     }
   }
 }
