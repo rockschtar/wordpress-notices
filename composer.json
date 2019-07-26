@@ -3,7 +3,7 @@
   "license": "MIT",
   "description": "WordPress Must Use Plugin that helps to display notices in wordpress admin area. Developed for usage with composer based based WordPress projects (roots/bedrock or johnpbloch/wordpress).",
   "type": "wordpress-muplugin",
-  "homepage": "https://gitlab.com/rockschtar/wordpress-notices",
+  "homepage": "https://github.com/rockschtar/wordpress-metarevisions",
   "authors": [
     {
       "name": "Stefan Helmer",
