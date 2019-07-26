@@ -1,31 +1,25 @@
 var RSAdminNotices = (function () {
 
-
     function addSuccess(message, dissmissable) {
         addNotice('success', message, dissmissable);
     }
 
     function addWarning(message, dissmissable) {
         addNotice('warning', message, dissmissable);
-
     }
 
     function addError(message, dissmissable) {
         addNotice('error', message, dissmissable);
-
     }
 
     function addInfo(message, dissmissable) {
         addNotice('info', message, dissmissable);
-
     }
-
 
     function addNotice(type, message, dissmissable) {
 
         message = typeof message !== 'undefined' ? message : '';
         dissmissable = typeof dissmissable !== 'undefined' ? dissmissable : false;
-
 
         var type_css_class = '';
 

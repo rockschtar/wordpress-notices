@@ -1,7 +1,7 @@
 {
   "name": "rockschtar/wordpress-notices",
   "license": "MIT",
-  "description": "Library for simple creation of admin notices",
+  "description": "WordPress Must Use Plugin that helps to display notices in wordpress admin area. Developed for usage with composer based based WordPress projects (roots/bedrock or johnpbloch/wordpress).",
   "type": "wordpress-muplugin",
   "homepage": "https://gitlab.com/rockschtar/wordpress-notices",
   "authors": [
@@ -12,12 +12,17 @@
   ],
   "require": {
     "php": ">=7.1",
-    "rockschtar/typed-arrays": "0.2.*",
+    "rockschtar/typed-arrays": "0.3.*",
     "myclabs/php-enum": "^1.6"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "7.5.*",
+    "brain/monkey": "^2.2"
   },
   "autoload": {
     "psr-4": {
-      "Rockschtar\\WordPress\\Notices\\": "src/"
+      "Rockschtar\\WordPress\\Notices\\": "src/",
+      "Rockschtar\\WordPress\\Notices\\Tests\\": "tests/"
     }
   }
 }

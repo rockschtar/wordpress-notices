@@ -16,8 +16,7 @@ class NoticeController {
         add_action('admin_init', array(&$this, 'session_required'));
     }
 
-    public function admin_enqueue_scripts() {
-
+    public function admin_enqueue_scripts(): void {
        wp_enqueue_script('rs-admin-notices', RSAS_PLUGIN_URL . '/scripts/AdminNotices.js');
     }
 
