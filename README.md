@@ -25,13 +25,15 @@ composer require rockschtar/wordpress-notices
 rockschtar/wordpress-metarevisions is open source and released under MIT license. See LICENSE.md file for more info.
 
 ### Usage
-somewhere in your plugin code (example)
+somewhere in your plugin code (example) 
+**php**
 ```php
 add_action('admin_init', function() {
     add_notice_success('Hello World');
 });
 ```
 
+**javascript**
 ```javascript
 RSAdminNotices.addError('This is a error');
 RSAdminNotices.addSuccess('This is a success');
