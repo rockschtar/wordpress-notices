@@ -5,7 +5,7 @@
 WordPress
 [Must Use Plugin](https://codex.wordpress.org/Must_Use_Plugins) that
 helps to display notices in wordpress admin area. Developed for usage
-with composer based based WordPress projects
+with composer based WordPress projects
 ([roots/bedrock](https://github.com/roots/bedrock) or
 [johnpbloch/wordpress](https://github.com/johnpbloch/wordpress)).
 
