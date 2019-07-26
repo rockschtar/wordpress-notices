@@ -1,6 +1,6 @@
-# rockschtar/wordpress-notices
+### rockschtar/wordpress-notices
 
-# Description
+### Description
 
 WordPress
 [Must Use Plugin](https://codex.wordpress.org/Must_Use_Plugins) that
@@ -9,23 +9,24 @@ with composer based based WordPress projects
 ([roots/bedrock](https://github.com/roots/bedrock) or
 [johnpbloch/wordpress](https://github.com/johnpbloch/wordpress)).
 
-# Requirements
+### Requirements
 
   - PHP 7.1+
   - [Composer](https://getcomposer.org/) to install
 
-# Install
+### Install
 
 ```
 composer require rockschtar/wordpress-notices
 ```
 
-# License
+### License
 
-rockschtar/wordpress-metarevisions is open source and released under MIT license. See LICENSE.md file for more info.
+rockschtar/wordpress-notices is open source and released under MIT
+license. See LICENSE.md file for more info.
 
 ### Usage
-somewhere in your plugin code (example) 
+
 **php**
 ```php
 add_action('admin_init', function() {
