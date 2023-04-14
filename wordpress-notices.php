@@ -9,7 +9,12 @@
  * License: MIT License
  */
 
-define('RSAS_PLUGIN_URL', plugin_dir_url(__FILE__));
+define('RSWPN_PLUGIN_URL', plugin_dir_url(__FILE__));
+define('RSWPN_PLUGIN_DIR', plugin_dir_path(__FILE__));
+
+if(file_exists(RSWPN_PLUGIN_DIR . 'vendor/autoload.php')) {
+    require_once RSWPN_PLUGIN_DIR . 'vendor/autoload.php';
+}
 
 \Rockschtar\WordPress\Notices\Controller\NoticeController::init();
 

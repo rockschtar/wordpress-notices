@@ -1,51 +1,39 @@
 <?php
-/**
- * @author: StefanHelmer
- */
 
 namespace Rockschtar\WordPress\Notices\Models;
 
-use Rockschtar\TypedArrays\TypedArray;
+class Notices
+{
+    /**
+     * @var \Rockschtar\WordPress\Notices\Models\Notice[]
+     */
+    private array $notices = [];
 
-class Notices extends TypedArray {
-    public function current() : Notice {
-        return parent::current();
-    }
-
-    public function getType(): string {
-        return Notice::class;
+    public function append(Notice $notice): void
+    {
+        $this->notices[] = $notice;
     }
 
     /**
-     * @param string $type
-     * @return Notice[]
+     * @return \Rockschtar\WordPress\Notices\Models\Notice[]
      */
-    public function filter(string $type): array {
+    public function get() : array
+    {
+        return $this->notices;
+    }
 
+    /**
+     * @return \Rockschtar\WordPress\Notices\Models\Notice[]
+     */
+    public function filter(string $type): array
+    {
         $result = [];
-
-        foreach($this->getArrayCopy() as $item) {
-            /* @var $item Notice */
-            if($item->getType() === $type) {
+        foreach ($this->notices as $item) {
+            if ($item->getType() === $type) {
                 $result[] = $item;
             }
         }
 
         return $result;
     }
-
-    protected function isDuplicate($value): bool {
-        /* @var $value Notice */
-        /* @var $item Notice */
-
-        foreach($this->getArrayCopy() as $item) {
-            if($item->getMessage() === $value->getMessage()) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-
 }

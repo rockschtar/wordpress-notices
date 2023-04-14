@@ -11,8 +11,7 @@
     }
   ],
   "require": {
-    "php": ">=7.1",
-    "rockschtar/typed-arrays": "0.3.*",
+    "php": ">=8.0",
     "myclabs/php-enum": "^1.6"
   },
   "require-dev": {

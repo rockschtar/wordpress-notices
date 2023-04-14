@@ -4,14 +4,14 @@
 
 WordPress
 [Must Use Plugin](https://codex.wordpress.org/Must_Use_Plugins) that
-helps to display notices in wordpress admin area. Developed for usage
+helps to display notices in WordPress admin area. Developed for usage
 with composer based WordPress projects
 ([roots/bedrock](https://github.com/roots/bedrock) or
 [johnpbloch/wordpress](https://github.com/johnpbloch/wordpress)).
 
 ### Requirements
 
-  - PHP 7.1+
+  - PHP 8.0+
   - [Composer](https://getcomposer.org/) to install
 
 ### Install
