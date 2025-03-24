@@ -17,7 +17,7 @@ class Notices
     /**
      * @return \Rockschtar\WordPress\Notices\Models\Notice[]
      */
-    public function get() : array
+    public function get(): array
     {
         return $this->notices;
     }

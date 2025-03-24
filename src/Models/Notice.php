@@ -4,25 +4,25 @@ namespace Rockschtar\WordPress\Notices\Models;
 
 class Notice
 {
-    private string $type;
+    private NoticeType $type;
 
     private string $message;
 
     private bool $dismissible;
 
-    public function __construct(string $type, string $message, bool $dismissible = false)
+    public function __construct(NoticeType $type, string $message, bool $dismissible = false)
     {
         $this->type = $type;
         $this->message = $message;
         $this->dismissible = $dismissible;
     }
 
-    public function getType(): string
+    public function getType(): NoticeType
     {
         return $this->type;
     }
 
-    public function setType(string $type): Notice
+    public function setType(NoticeType $type): Notice
     {
         $this->type = $type;
         return $this;

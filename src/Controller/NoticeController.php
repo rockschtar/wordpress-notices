@@ -9,35 +9,30 @@ class NoticeController
 {
     private function __construct()
     {
-        add_action('admin_enqueue_scripts', array(&$this, 'adminEnqueueScripts'));
-        add_action('admin_notices', array(&$this, 'displayNotices'));
-        add_action('admin_init', array(&$this, 'sessionRequired'));
+        add_action('admin_notices', $this->displayNotices(...));
+        add_action('admin_init', $this->sessionRequired(...));
     }
 
-    public function adminEnqueueScripts(): void
-    {
-        wp_enqueue_script('rs-admin-notices', RSWPN_PLUGIN_URL . '/scripts/AdminNotices.js');
-    }
-
-    public static function &init()
+    public static function &init(): NoticeController
     {
         static $instance = false;
+
         if (!$instance) {
             $instance = new self();
         }
         return $instance;
     }
 
-    final public function sessionRequired(): void
+    private function sessionRequired(): void
     {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
     }
 
-    public function displayNotices(): void
+    private function displayNotices(): void
     {
-        foreach (NoticeType::toArray() as $type) {
+        foreach (NoticeType::cases() as $type) {
             $cssClass = match ($type) {
                 NoticeType::ERROR => 'notice-error',
                 NoticeType::SUCCESS => 'notice-success',
