@@ -25,7 +25,7 @@ class Notices
     /**
      * @return \Rockschtar\WordPress\Notices\Models\Notice[]
      */
-    public function filter(string $type): array
+    public function filter(NoticeType $type): array
     {
         $result = [];
         foreach ($this->notices as $item) {
